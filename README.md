@@ -4,7 +4,7 @@ Dummy tile visualization of SDGS (The original codes come from "https://github.c
 
 
 #WEB  
-https://cartotiles.github.io/experimental-coloredmap-sdgs/  
+https://cartotiles.github.io/experimental-coloredmap-sdgs/SDGs_index.html  
 
 
 # install and test-run
