@@ -36,7 +36,7 @@ print <<-EOS
 <style>
 body { margin: 0; top: 0; bottom: 0; width: 100%; }
 #map { position: absolute; top: 0; bottom: 0; width: 100%; }
-.mapboxgl-popup { min-width: 620px; max-width: 620px }
+.mapboxgl-popup { min-width: 400px; max-width: 400px }
 </style>
 <script src="mapbox-gl.js"></script>
 </head>
