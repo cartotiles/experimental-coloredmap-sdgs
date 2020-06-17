@@ -1,0 +1,1839 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<link rel="stylesheet" type="text/css" href="mapbox-gl.css">
+<style>
+body { margin: 0; top: 0; bottom: 0; width: 100%; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+.mapboxgl-popup { min-width: 620px; max-width: 620px }
+</style>
+<script src="mapbox-gl.js"></script>
+</head>
+<body>
+<div id="map"></div>
+<script type="module">
+const data = {
+  "15.1.1": {
+    "aw": {
+      "names": "ABW",
+      "values": 2,
+      "raw_vals": "2.33333",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "af": {
+      "names": "AFG",
+      "values": 2,
+      "raw_vals": "2.06782",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ao": {
+      "names": "AGO",
+      "values": 46,
+      "raw_vals": "46.40732",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ai": {
+      "names": "AIA",
+      "values": 61,
+      "raw_vals": "61.11111",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "al": {
+      "names": "ALB",
+      "values": 28,
+      "raw_vals": "28.15693",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ad": {
+      "names": "AND",
+      "values": 34,
+      "raw_vals": "34.04255",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ae": {
+      "names": "ARE",
+      "values": 4,
+      "raw_vals": "4.54238",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ar": {
+      "names": "ARG",
+      "values": 9,
+      "raw_vals": "9.90686",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "am": {
+      "names": "ARM",
+      "values": 11,
+      "raw_vals": "11.6614",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "as": {
+      "names": "ASM",
+      "values": 87,
+      "raw_vals": "87.715",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ag": {
+      "names": "ATG",
+      "values": 22,
+      "raw_vals": "22.27273",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "au": {
+      "names": "AUS",
+      "values": 16,
+      "raw_vals": "16.23876",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "at": {
+      "names": "AUT",
+      "values": 46,
+      "raw_vals": "46.8839",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "az": {
+      "names": "AZE",
+      "values": 13,
+      "raw_vals": "13.78368",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "bi": {
+      "names": "BDI",
+      "values": 10,
+      "raw_vals": "10.74766",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "be": {
+      "names": "BEL",
+      "values": 22,
+      "raw_vals": "22.56935",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "bj": {
+      "names": "BEN",
+      "values": 38,
+      "raw_vals": "38.23164",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "bq": {
+      "names": "BES",
+      "values": 5,
+      "raw_vals": "5.75155",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "bf": {
+      "names": "BFA",
+      "values": 19,
+      "raw_vals": "19.55409",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "bd": {
+      "names": "BGD",
+      "values": 10,
+      "raw_vals": "10.97795",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "bg": {
+      "names": "BGR",
+      "values": 35,
+      "raw_vals": "35.21555",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "bh": {
+      "names": "BHR",
+      "values": 0,
+      "raw_vals": "0.77635",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "bs": {
+      "names": "BHS",
+      "values": 51,
+      "raw_vals": "51.44855",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ba": {
+      "names": "BIH",
+      "values": 42,
+      "raw_vals": "42.67578",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "by": {
+      "names": "BLR",
+      "values": 42,
+      "raw_vals": "42.53417",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "bz": {
+      "names": "BLZ",
+      "values": 59,
+      "raw_vals": "59.89917",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "bm": {
+      "names": "BMU",
+      "values": 18,
+      "raw_vals": "18.51852",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "bo": {
+      "names": "BOL",
+      "values": 50,
+      "raw_vals": "50.55294",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "br": {
+      "names": "BRA",
+      "values": 59,
+      "raw_vals": "59.04878",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "bb": {
+      "names": "BRB",
+      "values": 14,
+      "raw_vals": "14.65116",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "bn": {
+      "names": "BRN",
+      "values": 72,
+      "raw_vals": "72.10626",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "bt": {
+      "names": "BTN",
+      "values": 72,
+      "raw_vals": "72.27576",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "bw": {
+      "names": "BWA",
+      "values": 19,
+      "raw_vals": "19.12727",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "cf": {
+      "names": "CAF",
+      "values": 35,
+      "raw_vals": "35.58702",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ca": {
+      "names": "CAN",
+      "values": 38,
+      "raw_vals": "38.16667",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ch": {
+      "names": "CHE",
+      "values": 31,
+      "raw_vals": "31.73398",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "cl": {
+      "names": "CHL",
+      "values": 23,
+      "raw_vals": "23.85237",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "cn": {
+      "names": "CHN",
+      "values": 22,
+      "raw_vals": "22.10376",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ci": {
+      "names": "CIV",
+      "values": 10,
+      "raw_vals": "10.69544",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "cm": {
+      "names": "CMR",
+      "values": 39,
+      "raw_vals": "39.80453",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "cd": {
+      "names": "COD",
+      "values": 67,
+      "raw_vals": "67.30244",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "cg": {
+      "names": "COG",
+      "values": 65,
+      "raw_vals": "65.39971",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ck": {
+      "names": "COK",
+      "values": 62,
+      "raw_vals": "62.91667",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "co": {
+      "names": "COL",
+      "values": 52,
+      "raw_vals": "52.72802",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "km": {
+      "names": "COM",
+      "values": 19,
+      "raw_vals": "19.88178",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "cv": {
+      "names": "CPV",
+      "values": 22,
+      "raw_vals": "22.30844",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "cr": {
+      "names": "CRI",
+      "values": 53,
+      "raw_vals": "53.97571",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "cu": {
+      "names": "CUB",
+      "values": 30,
+      "raw_vals": "30.76331",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "cw": {
+      "names": "CUW",
+      "values": 0,
+      "raw_vals": "0.17342",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ky": {
+      "names": "CYM",
+      "values": 52,
+      "raw_vals": "52.91667",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "cy": {
+      "names": "CYP",
+      "values": 18,
+      "raw_vals": "18.69048",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "cz": {
+      "names": "CZE",
+      "values": 34,
+      "raw_vals": "34.54216",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "de": {
+      "names": "DEU",
+      "values": 32,
+      "raw_vals": "32.73242",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "dj": {
+      "names": "DJI",
+      "values": 0,
+      "raw_vals": "0.24159",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "dm": {
+      "names": "DMA",
+      "values": 57,
+      "raw_vals": "57.77333",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "dk": {
+      "names": "DNK",
+      "values": 14,
+      "raw_vals": "14.57966",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "do": {
+      "names": "DOM",
+      "values": 41,
+      "raw_vals": "41.0474",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "dz": {
+      "names": "DZA",
+      "values": 0,
+      "raw_vals": "0.82125",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ec": {
+      "names": "ECU",
+      "values": 50,
+      "raw_vals": "50.52293",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "eg": {
+      "names": "EGY",
+      "values": 7,
+      "raw_vals": "7.33E-02",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "er": {
+      "names": "ERI",
+      "values": 14,
+      "raw_vals": "14.9505",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "eh": {
+      "names": "ESH",
+      "values": 2,
+      "raw_vals": "2.65789",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "es": {
+      "names": "ESP",
+      "values": 36,
+      "raw_vals": "36.86073",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ee": {
+      "names": "EST",
+      "values": 51,
+      "raw_vals": "51.34576",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "et": {
+      "names": "ETH",
+      "values": 12,
+      "raw_vals": "12.499",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "fi": {
+      "names": "FIN",
+      "values": 73,
+      "raw_vals": "73.10717",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "fj": {
+      "names": "FJI",
+      "values": 55,
+      "raw_vals": "55.6757",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "fk": {
+      "names": "FLK",
+      "values": 0,
+      "raw_vals": "0",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "fr": {
+      "names": "FRA",
+      "values": 31,
+      "raw_vals": "31.02702",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "fo": {
+      "names": "FRO",
+      "values": 5,
+      "raw_vals": "5.95E-02",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "fm": {
+      "names": "FSM",
+      "values": 91,
+      "raw_vals": "91.80714",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ga": {
+      "names": "GAB",
+      "values": 89,
+      "raw_vals": "89.26146",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "gb": {
+      "names": "GBR",
+      "values": 12,
+      "raw_vals": "12.99549",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ge": {
+      "names": "GEO",
+      "values": 40,
+      "raw_vals": "40.61592",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "gg": {
+      "names": "GGY",
+      "values": 2,
+      "raw_vals": "2.5641",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "gh": {
+      "names": "GHA",
+      "values": 41,
+      "raw_vals": "41.03454",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "gi": {
+      "names": "GIB",
+      "values": 0,
+      "raw_vals": "0",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "gn": {
+      "names": "GIN",
+      "values": 25,
+      "raw_vals": "25.8994",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "gp": {
+      "names": "GLP",
+      "values": 44,
+      "raw_vals": "44.24257",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "gm": {
+      "names": "GMB",
+      "values": 48,
+      "raw_vals": "48.22134",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "gw": {
+      "names": "GNB",
+      "values": 70,
+      "raw_vals": "70.12802",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "gq": {
+      "names": "GNQ",
+      "values": 55,
+      "raw_vals": "55.90018",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "gr": {
+      "names": "GRC",
+      "values": 31,
+      "raw_vals": "31.45074",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "gd": {
+      "names": "GRD",
+      "values": 49,
+      "raw_vals": "49.97059",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "gl": {
+      "names": "GRL",
+      "values": 5,
+      "raw_vals": "5.36E-04",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "gt": {
+      "names": "GTM",
+      "values": 33,
+      "raw_vals": "33.03471",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "gf": {
+      "names": "GUF",
+      "values": 98,
+      "raw_vals": "98.90511",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "gu": {
+      "names": "GUM",
+      "values": 46,
+      "raw_vals": "46.2963",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "gy": {
+      "names": "GUY",
+      "values": 83,
+      "raw_vals": "83.95225",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "hn": {
+      "names": "HND",
+      "values": 41,
+      "raw_vals": "41.04031",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "hr": {
+      "names": "HRV",
+      "values": 34,
+      "raw_vals": "34.34596",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ht": {
+      "names": "HTI",
+      "values": 3,
+      "raw_vals": "3.51959",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "hu": {
+      "names": "HUN",
+      "values": 22,
+      "raw_vals": "22.8543",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "id": {
+      "names": "IDN",
+      "values": 50,
+      "raw_vals": "50.23819",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "im": {
+      "names": "IMN",
+      "values": 6,
+      "raw_vals": "6.07018",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "in": {
+      "names": "IND",
+      "values": 23,
+      "raw_vals": "23.77312",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ie": {
+      "names": "IRL",
+      "values": 10,
+      "raw_vals": "10.94522",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ir": {
+      "names": "IRN",
+      "values": 6,
+      "raw_vals": "6.56449",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "iq": {
+      "names": "IRQ",
+      "values": 1,
+      "raw_vals": "1.90036",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "is": {
+      "names": "ISL",
+      "values": 0,
+      "raw_vals": "0.49077",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "il": {
+      "names": "ISR",
+      "values": 7,
+      "raw_vals": "7.62477",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "it": {
+      "names": "ITA",
+      "values": 31,
+      "raw_vals": "31.6074",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "jm": {
+      "names": "JAM",
+      "values": 30,
+      "raw_vals": "30.95106",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "je": {
+      "names": "JEY",
+      "values": 5,
+      "raw_vals": "5",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "jo": {
+      "names": "JOR",
+      "values": 1,
+      "raw_vals": "1.09822",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "jp": {
+      "names": "JPN",
+      "values": 68,
+      "raw_vals": "68.46061",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "kz": {
+      "names": "KAZ",
+      "values": 1,
+      "raw_vals": "1.22569",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ke": {
+      "names": "KEN",
+      "values": 7,
+      "raw_vals": "7.7538",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "kg": {
+      "names": "KGZ",
+      "values": 3,
+      "raw_vals": "3.32117",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "kh": {
+      "names": "KHM",
+      "values": 53,
+      "raw_vals": "53.57467",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ki": {
+      "names": "KIR",
+      "values": 15,
+      "raw_vals": "15",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "kn": {
+      "names": "KNA",
+      "values": 42,
+      "raw_vals": "42.30769",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "kr": {
+      "names": "KOR",
+      "values": 63,
+      "raw_vals": "63.46144",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "kw": {
+      "names": "KWT",
+      "values": 0,
+      "raw_vals": "0.35073",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "la": {
+      "names": "LAO",
+      "values": 81,
+      "raw_vals": "81.2886",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "lb": {
+      "names": "LBN",
+      "values": 13,
+      "raw_vals": "13.42131",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "lr": {
+      "names": "LBR",
+      "values": 43,
+      "raw_vals": "43.38663",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ly": {
+      "names": "LBY",
+      "values": 0,
+      "raw_vals": "0.12333",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "lc": {
+      "names": "LCA",
+      "values": 33,
+      "raw_vals": "33.27869",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "li": {
+      "names": "LIE",
+      "values": 43,
+      "raw_vals": "43.125",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "lk": {
+      "names": "LKA",
+      "values": 33,
+      "raw_vals": "33.00909",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ls": {
+      "names": "LSO",
+      "values": 1,
+      "raw_vals": "1.61397",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "lt": {
+      "names": "LTU",
+      "values": 34,
+      "raw_vals": "34.79649",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "lu": {
+      "names": "LUX",
+      "values": 35,
+      "raw_vals": "35.67901",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "lv": {
+      "names": "LVA",
+      "values": 53,
+      "raw_vals": "53.97234",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "mf": {
+      "names": "MAF",
+      "values": 21,
+      "raw_vals": "21.58491",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ma": {
+      "names": "MAR",
+      "values": 12,
+      "raw_vals": "12.61931",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "mc": {
+      "names": "MCO",
+      "values": 0,
+      "raw_vals": "0",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "md": {
+      "names": "MDA",
+      "values": 12,
+      "raw_vals": "12.43917",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "mg": {
+      "names": "MDG",
+      "values": 21,
+      "raw_vals": "21.43864",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "mv": {
+      "names": "MDV",
+      "values": 3,
+      "raw_vals": "3.33333",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "mx": {
+      "names": "MEX",
+      "values": 33,
+      "raw_vals": "33.97207",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "mh": {
+      "names": "MHL",
+      "values": 70,
+      "raw_vals": "70.2",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "mk": {
+      "names": "MKD",
+      "values": 39,
+      "raw_vals": "39.57177",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ml": {
+      "names": "MLI",
+      "values": 3,
+      "raw_vals": "3.86415",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "mt": {
+      "names": "MLT",
+      "values": 1,
+      "raw_vals": "1.08438",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "mm": {
+      "names": "MMR",
+      "values": 44,
+      "raw_vals": "44.46775",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "me": {
+      "names": "MNE",
+      "values": 61,
+      "raw_vals": "61.48699",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "mn": {
+      "names": "MNG",
+      "values": 8,
+      "raw_vals": "8.08002",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "mp": {
+      "names": "MNP",
+      "values": 64,
+      "raw_vals": "64.12174",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "mz": {
+      "names": "MOZ",
+      "values": 48,
+      "raw_vals": "48.24639",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "mr": {
+      "names": "MRT",
+      "values": 0,
+      "raw_vals": "0.21781",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ms": {
+      "names": "MSR",
+      "values": 25,
+      "raw_vals": "25",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "mq": {
+      "names": "MTQ",
+      "values": 45,
+      "raw_vals": "45.75472",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "mu": {
+      "names": "MUS",
+      "values": 19,
+      "raw_vals": "19.01478",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "mw": {
+      "names": "MWI",
+      "values": 33,
+      "raw_vals": "33.3793",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ny": {
+      "names": "MYS",
+      "values": 67,
+      "raw_vals": "67.55441",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "yt": {
+      "names": "MYT",
+      "values": 15,
+      "raw_vals": "15.5615",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "na": {
+      "names": "NAM",
+      "values": 8,
+      "raw_vals": "8.40409",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "nc": {
+      "names": "NCL",
+      "values": 45,
+      "raw_vals": "45.89716",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ne": {
+      "names": "NER",
+      "values": 0,
+      "raw_vals": "0.90156",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "nf": {
+      "names": "NFK",
+      "values": 11,
+      "raw_vals": "11.5",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ng": {
+      "names": "NGA",
+      "values": 7,
+      "raw_vals": "7.67812",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ni": {
+      "names": "NIC",
+      "values": 25,
+      "raw_vals": "25.87668",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "nu": {
+      "names": "NIU",
+      "values": 69,
+      "raw_vals": "69.61538",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "nl": {
+      "names": "NLD",
+      "values": 11,
+      "raw_vals": "11.16058",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "no": {
+      "names": "NOR",
+      "values": 39,
+      "raw_vals": "39.82573",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "np": {
+      "names": "NPL",
+      "values": 25,
+      "raw_vals": "25.36449",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "nr": {
+      "names": "NRU",
+      "values": 0,
+      "raw_vals": "0",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "nz": {
+      "names": "NZL",
+      "values": 38,
+      "raw_vals": "38.55532",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "om": {
+      "names": "OMN",
+      "values": 6,
+      "raw_vals": "6.46E-03",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "pk": {
+      "names": "PAK",
+      "values": 1,
+      "raw_vals": "1.90951",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "pa": {
+      "names": "PAN",
+      "values": 62,
+      "raw_vals": "62.10654",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "pn": {
+      "names": "PCN",
+      "values": 74,
+      "raw_vals": "74.46809",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "pe": {
+      "names": "PER",
+      "values": 57,
+      "raw_vals": "57.79141",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ph": {
+      "names": "PHL",
+      "values": 26,
+      "raw_vals": "26.96448",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "pw": {
+      "names": "PLW",
+      "values": 87,
+      "raw_vals": "87.61522",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "pg": {
+      "names": "PNG",
+      "values": 74,
+      "raw_vals": "74.10458",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "pl": {
+      "names": "POL",
+      "values": 30,
+      "raw_vals": "30.8142",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "pr": {
+      "names": "PRI",
+      "values": 55,
+      "raw_vals": "55.91319",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "kp": {
+      "names": "PRK",
+      "values": 41,
+      "raw_vals": "41.78224",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "pt": {
+      "names": "PRT",
+      "values": 34,
+      "raw_vals": "34.73587",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "py": {
+      "names": "PRY",
+      "values": 38,
+      "raw_vals": "38.56783",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ps": {
+      "names": "PSE",
+      "values": 1,
+      "raw_vals": "1.52326",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "pf": {
+      "names": "PYF",
+      "values": 42,
+      "raw_vals": "42.34973",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "qa": {
+      "names": "QAT",
+      "values": 0,
+      "raw_vals": "0",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "re": {
+      "names": "REU",
+      "values": 35,
+      "raw_vals": "35.05976",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ro": {
+      "names": "ROU",
+      "values": 29,
+      "raw_vals": "29.82006",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ru": {
+      "names": "RUS",
+      "values": 49,
+      "raw_vals": "49.76107",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "rw": {
+      "names": "RWA",
+      "values": 19,
+      "raw_vals": "19.45683",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "sa": {
+      "names": "SAU",
+      "values": 0,
+      "raw_vals": "0.45448",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "sd": {
+      "names": "SDN",
+      "values": 10,
+      "raw_vals": "10.29111",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "sn": {
+      "names": "SEN",
+      "values": 42,
+      "raw_vals": "42.96993",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "sg": {
+      "names": "SGP",
+      "values": 23,
+      "raw_vals": "23.06065",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "sh": {
+      "names": "SHN",
+      "values": 5,
+      "raw_vals": "5.12821",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "sj": {
+      "names": "SJM",
+      "values": 0,
+      "raw_vals": "0",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "sb": {
+      "names": "SLB",
+      "values": 78,
+      "raw_vals": "78.06359",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "sl": {
+      "names": "SLE",
+      "values": 42,
+      "raw_vals": "42.17235",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "sv": {
+      "names": "SLV",
+      "values": 12,
+      "raw_vals": "12.78958",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "sm": {
+      "names": "SMR",
+      "values": 0,
+      "raw_vals": "0",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "so": {
+      "names": "SOM",
+      "values": 10,
+      "raw_vals": "10.14283",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "pm": {
+      "names": "SPM",
+      "values": 12,
+      "raw_vals": "12.17391",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "rs": {
+      "names": "SRB",
+      "values": 31,
+      "raw_vals": "31.09993",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ss": {
+      "names": "SSD",
+      "values": 11,
+      "raw_vals": "11.32921",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "st": {
+      "names": "STP",
+      "values": 55,
+      "raw_vals": "55.83333",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "sr": {
+      "names": "SUR",
+      "values": 98,
+      "raw_vals": "98.28205",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "sk": {
+      "names": "SVK",
+      "values": 40,
+      "raw_vals": "40.34774",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "si": {
+      "names": "SVN",
+      "values": 61,
+      "raw_vals": "61.95824",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "se": {
+      "names": "SWE",
+      "values": 68,
+      "raw_vals": "68.92293",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "sz": {
+      "names": "SWZ",
+      "values": 34,
+      "raw_vals": "34.06977",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "sx": {
+      "names": "SXM",
+      "values": 10,
+      "raw_vals": "10.91176",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "sc": {
+      "names": "SYC",
+      "values": 88,
+      "raw_vals": "88.40435",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "sy": {
+      "names": "SYR",
+      "values": 2,
+      "raw_vals": "2.67386",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "tc": {
+      "names": "TCA",
+      "values": 36,
+      "raw_vals": "36.21053",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "td": {
+      "names": "TCD",
+      "values": 3,
+      "raw_vals": "3.87151",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "tg": {
+      "names": "TGO",
+      "values": 3,
+      "raw_vals": "3.45652",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "th": {
+      "names": "THA",
+      "values": 32,
+      "raw_vals": "32.09889",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "tj": {
+      "names": "TJK",
+      "values": 2,
+      "raw_vals": "2.96851",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "tk": {
+      "names": "TKL",
+      "values": 0,
+      "raw_vals": "0",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "tm": {
+      "names": "TKM",
+      "values": 8,
+      "raw_vals": "8.78216",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "tl": {
+      "names": "TLS",
+      "values": 46,
+      "raw_vals": "46.13315",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "to": {
+      "names": "TON",
+      "values": 12,
+      "raw_vals": "12.5",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "tt": {
+      "names": "TTO",
+      "values": 45,
+      "raw_vals": "45.70682",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "tn": {
+      "names": "TUN",
+      "values": 6,
+      "raw_vals": "6.70057",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "tr": {
+      "names": "TUR",
+      "values": 15,
+      "raw_vals": "15.2216",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "tv": {
+      "names": "TUV",
+      "values": 33,
+      "raw_vals": "33.33333",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "tz": {
+      "names": "TZA",
+      "values": 51,
+      "raw_vals": "51.99819",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ug": {
+      "names": "UGA",
+      "values": 10,
+      "raw_vals": "10.35807",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ua": {
+      "names": "UKR",
+      "values": 16,
+      "raw_vals": "16.67041",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "uy": {
+      "names": "URY",
+      "values": 10,
+      "raw_vals": "10.54165",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "us": {
+      "names": "USA",
+      "values": 33,
+      "raw_vals": "33.89972",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "uz": {
+      "names": "UZB",
+      "values": 7,
+      "raw_vals": "7.56911",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "va": {
+      "names": "VAT",
+      "values": 0,
+      "raw_vals": "0",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "vc": {
+      "names": "VCT",
+      "values": 69,
+      "raw_vals": "69.23077",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ve": {
+      "names": "VEN",
+      "values": 52,
+      "raw_vals": "52.92557",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "vg": {
+      "names": "VGB",
+      "values": 24,
+      "raw_vals": "24.13333",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "vi": {
+      "names": "VIR",
+      "values": 50,
+      "raw_vals": "50.28571",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "vn": {
+      "names": "VNM",
+      "values": 47,
+      "raw_vals": "47.64408",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "vu": {
+      "names": "VUT",
+      "values": 36,
+      "raw_vals": "36.09516",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "wf": {
+      "names": "WLF",
+      "values": 41,
+      "raw_vals": "41.64286",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ws": {
+      "names": "WSM",
+      "values": 60,
+      "raw_vals": "60.42403",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "ye": {
+      "names": "YEM",
+      "values": 1,
+      "raw_vals": "1.03983",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "za": {
+      "names": "ZAF",
+      "values": 7,
+      "raw_vals": "7.61774",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "zm": {
+      "names": "ZMB",
+      "values": 65,
+      "raw_vals": "65.42326",
+      "years": 2015,
+      "unit": "PERCENT"
+    },
+    "zw": {
+      "names": "ZWE",
+      "values": 36,
+      "raw_vals": "36.35001",
+      "years": 2015,
+      "unit": "PERCENT"
+    }
+  }
+}
+const max = {
+  "values": 98
+} 
+
+const INDEX = '15.1.1'
+const unit = "percent"
+const TYPE = 'values'
+
+const indexData = data[INDEX]
+console.log(indexData)
+
+let ISO_A2
+let table = []
+let iso3cds = []
+let iso2cds = []
+for (let iso2cd in indexData) {
+  iso3cds.push(indexData[iso2cd]['names'])
+  iso2cds.push(iso2cd)
+  const g = 
+    indexData[iso2cd][TYPE] / 
+    max[TYPE]
+  if (table[g]) {
+    table[g].push(iso2cd.toUpperCase())
+  } else {
+    table[g] = [iso2cd.toUpperCase()]
+  }
+}
+let fillExpression = [
+  'match',
+  [
+    'get',
+    'ISO_A2'
+  ]
+]
+for (let g in table) {
+  fillExpression.push(table[g])
+  fillExpression.push('hsl(' + parseInt(60 - g * 60) + ', 100%, 50%)')
+}
+fillExpression.push([
+  'rgb',
+  250,
+  250,
+  250
+])
+
+const map = new mapboxgl.Map({
+  container: 'map',
+  style: 'https://cartotiles.github.io/experimental-plaine-map/style.json',
+  attributionControl: true,
+  hash: true,
+  renderWorldCopies: false
+})
+map.addControl(new mapboxgl.NavigationControl())
+
+let match1 = [
+  'match',
+  [
+    'get',
+    'ISO3CD'
+  ]
+]
+let match2 = [
+  'match',
+  [
+    'get',
+    'ISO3CD'
+  ]
+]
+let match3 = [
+  'match',
+  [
+    'get',
+    'ISO3CD'
+  ]
+]
+for (let iso2cd in indexData) {
+  match1.push(indexData[iso2cd]['names'].toUpperCase())
+  match1.push(indexData[iso2cd]['values'].toString())
+  match2.push(indexData[iso2cd]['names'].toUpperCase())
+  match2.push([
+    'concat',
+    [
+      'get',
+      'ISO3CD'
+    ],
+    ': ',
+    indexData[iso2cd][TYPE]
+  ])
+  match3.push(indexData[iso2cd]['names'].toUpperCase())
+  match3.push([
+    'concat',
+    [
+      'get',
+      'MAPCLR'
+    ],
+    ': ',
+    indexData[iso2cd]['raw_vals'],
+    ' (',
+    indexData[iso2cd]['years'],
+    ' )'
+  ])
+}
+match1.push('')
+match2.push('NA')
+match3.push('No data')
+
+const textFieldExpression = [
+  'step',
+  [
+    'zoom'
+  ],
+  match1,
+  1,
+  match2,
+  3,
+  match3
+]
+
+
+
+map.on('load', () => {
+  map.getSource('v').attribution += 
+    ` | number of ${TYPE} on ${INDEX} for test`
+  console.log(map.getSource('v').attribution)
+  map.setPaintProperty(
+    'bnda',
+    'fill-color',
+    fillExpression
+  )
+  map.setLayoutProperty(
+    'text',
+    'text-field',
+    textFieldExpression
+  )
+  map.setPaintProperty(
+    'text',
+    'text-color',
+    [
+      'match',
+      [
+        'get',
+        'ISO3CD'
+      ],
+      iso3cds,
+      [
+        'rgb',
+        0,
+        0,
+        0
+      ],
+      [
+        'rgb',
+        200,
+        200,
+        200
+      ]
+    ]
+  )
+})
+map.on('click', 'bnda', function(e) {
+  console.log(e.features[0])
+  var html = "<h2>" + e.features[0].properties.MAPLAB + 
+    "</h2><img src='https://cartotiles.github.io/experimental-coloredmap-sdgs/graphs/" + INDEX + "/" + INDEX + "_" + e.features[0].properties.MAPCLR +".png" + "'><br>" + 
+    "unit:" + unit
+  new mapboxgl.Popup()
+    .setLngLat(e.lngLat)
+    .setHTML(html)
+    .addTo(map)
+})
+
+</script>
+</body>
+</html>

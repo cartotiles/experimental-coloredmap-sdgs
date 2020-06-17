@@ -1,0 +1,1496 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<link rel="stylesheet" type="text/css" href="mapbox-gl.css">
+<style>
+body { margin: 0; top: 0; bottom: 0; width: 100%; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+.mapboxgl-popup { min-width: 620px; max-width: 620px }
+</style>
+<script src="mapbox-gl.js"></script>
+</head>
+<body>
+<div id="map"></div>
+<script type="module">
+const data = {
+  "12.2.2": {
+    "af": {
+      "names": "AFG",
+      "values": 1,
+      "raw_vals": "1.91004",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ao": {
+      "names": "AGO",
+      "values": 4,
+      "raw_vals": "4.92302",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "al": {
+      "names": "ALB",
+      "values": 10,
+      "raw_vals": "10.13229",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ae": {
+      "names": "ARE",
+      "values": 22,
+      "raw_vals": "22.48572",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ar": {
+      "names": "ARG",
+      "values": 11,
+      "raw_vals": "11.20757",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "am": {
+      "names": "ARM",
+      "values": 11,
+      "raw_vals": "11.09318",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ag": {
+      "names": "ATG",
+      "values": 2,
+      "raw_vals": "2.71877",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "au": {
+      "names": "AUS",
+      "values": 37,
+      "raw_vals": "37.92564",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "at": {
+      "names": "AUT",
+      "values": 15,
+      "raw_vals": "15.77864",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "az": {
+      "names": "AZE",
+      "values": 9,
+      "raw_vals": "9.17306",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "bi": {
+      "names": "BDI",
+      "values": 1,
+      "raw_vals": "1.75059",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "be": {
+      "names": "BEL",
+      "values": 16,
+      "raw_vals": "16.02991",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "bj": {
+      "names": "BEN",
+      "values": 5,
+      "raw_vals": "5.09198",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "bf": {
+      "names": "BFA",
+      "values": 4,
+      "raw_vals": "4.39835",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "bd": {
+      "names": "BGD",
+      "values": 2,
+      "raw_vals": "2.64604",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "bg": {
+      "names": "BGR",
+      "values": 19,
+      "raw_vals": "19.58999",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "bh": {
+      "names": "BHR",
+      "values": 28,
+      "raw_vals": "28.51391",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "bs": {
+      "names": "BHS",
+      "values": 2,
+      "raw_vals": "2.88899",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ba": {
+      "names": "BIH",
+      "values": 11,
+      "raw_vals": "11.41819",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "by": {
+      "names": "BLR",
+      "values": 17,
+      "raw_vals": "17.49097",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "bz": {
+      "names": "BLZ",
+      "values": 8,
+      "raw_vals": "8.5589",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "bo": {
+      "names": "BOL",
+      "values": 11,
+      "raw_vals": "11.48003",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "br": {
+      "names": "BRA",
+      "values": 12,
+      "raw_vals": "12.8048",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "bb": {
+      "names": "BRB",
+      "values": 2,
+      "raw_vals": "2.04089",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "bn": {
+      "names": "BRN",
+      "values": 22,
+      "raw_vals": "22.86553",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "bt": {
+      "names": "BTN",
+      "values": 10,
+      "raw_vals": "10.36474",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "bw": {
+      "names": "BWA",
+      "values": 29,
+      "raw_vals": "29.48408",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "cf": {
+      "names": "CAF",
+      "values": 3,
+      "raw_vals": "3.38241",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ca": {
+      "names": "CAN",
+      "values": 28,
+      "raw_vals": "28.79258",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ch": {
+      "names": "CHE",
+      "values": 13,
+      "raw_vals": "13.71868",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "cl": {
+      "names": "CHL",
+      "values": 41,
+      "raw_vals": "41.33518",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "cn": {
+      "names": "CHN",
+      "values": 24,
+      "raw_vals": "24.90287",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ci": {
+      "names": "CIV",
+      "values": 2,
+      "raw_vals": "2.95195",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "cm": {
+      "names": "CMR",
+      "values": 4,
+      "raw_vals": "4.16955",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "cd": {
+      "names": "COD",
+      "values": 2,
+      "raw_vals": "2.29852",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "cg": {
+      "names": "COG",
+      "values": 3,
+      "raw_vals": "3.53183",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "co": {
+      "names": "COL",
+      "values": 5,
+      "raw_vals": "5.87199",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "km": {
+      "names": "COM",
+      "values": 3,
+      "raw_vals": "3.46257",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "cv": {
+      "names": "CPV",
+      "values": 6,
+      "raw_vals": "6.8848",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "cr": {
+      "names": "CRI",
+      "values": 7,
+      "raw_vals": "7.51171",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "cu": {
+      "names": "CUB",
+      "values": 6,
+      "raw_vals": "6.53533",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "cy": {
+      "names": "CYP",
+      "values": 9,
+      "raw_vals": "9.72696",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "cz": {
+      "names": "CZE",
+      "values": 16,
+      "raw_vals": "16.8916",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "de": {
+      "names": "DEU",
+      "values": 14,
+      "raw_vals": "14.67891",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "dj": {
+      "names": "DJI",
+      "values": 2,
+      "raw_vals": "2.94073",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "dm": {
+      "names": "DMA",
+      "values": 3,
+      "raw_vals": "3.99507",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "dk": {
+      "names": "DNK",
+      "values": 15,
+      "raw_vals": "15.64763",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "do": {
+      "names": "DOM",
+      "values": 5,
+      "raw_vals": "5.24744",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "dz": {
+      "names": "DZA",
+      "values": 9,
+      "raw_vals": "9.00822",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ec": {
+      "names": "ECU",
+      "values": 8,
+      "raw_vals": "8.08906",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "eg": {
+      "names": "EGY",
+      "values": 7,
+      "raw_vals": "7.84763",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "er": {
+      "names": "ERI",
+      "values": 7,
+      "raw_vals": "7.00201",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "es": {
+      "names": "ESP",
+      "values": 7,
+      "raw_vals": "7.70944",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ee": {
+      "names": "EST",
+      "values": 35,
+      "raw_vals": "35.03456",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "et": {
+      "names": "ETH",
+      "values": 3,
+      "raw_vals": "3.1745",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "fi": {
+      "names": "FIN",
+      "values": 24,
+      "raw_vals": "24.70778",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "fj": {
+      "names": "FJI",
+      "values": 6,
+      "raw_vals": "6.06238",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "fr": {
+      "names": "FRA",
+      "values": 11,
+      "raw_vals": "11.9458",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "fm": {
+      "names": "FSM",
+      "values": 2,
+      "raw_vals": "2.30558",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ga": {
+      "names": "GAB",
+      "values": 5,
+      "raw_vals": "5.98025",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "gb": {
+      "names": "GBR",
+      "values": 7,
+      "raw_vals": "7.78539",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ge": {
+      "names": "GEO",
+      "values": 6,
+      "raw_vals": "6.76727",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "gh": {
+      "names": "GHA",
+      "values": 6,
+      "raw_vals": "6.94083",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "gn": {
+      "names": "GIN",
+      "values": 3,
+      "raw_vals": "3.76283",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "gm": {
+      "names": "GMB",
+      "values": 2,
+      "raw_vals": "2.51823",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "gw": {
+      "names": "GNB",
+      "values": 3,
+      "raw_vals": "3.86517",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "gq": {
+      "names": "GNQ",
+      "values": 19,
+      "raw_vals": "19.21658",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "gr": {
+      "names": "GRC",
+      "values": 10,
+      "raw_vals": "10.02498",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "gd": {
+      "names": "GRD",
+      "values": 0,
+      "raw_vals": "0.78934",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "gt": {
+      "names": "GTM",
+      "values": 5,
+      "raw_vals": "5.023",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "gy": {
+      "names": "GUY",
+      "values": 21,
+      "raw_vals": "21.57506",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "hn": {
+      "names": "HND",
+      "values": 4,
+      "raw_vals": "4.01835",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "hr": {
+      "names": "HRV",
+      "values": 6,
+      "raw_vals": "6.21104",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ht": {
+      "names": "HTI",
+      "values": 1,
+      "raw_vals": "1.28232",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "hu": {
+      "names": "HUN",
+      "values": 16,
+      "raw_vals": "16.92583",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "id": {
+      "names": "IDN",
+      "values": 7,
+      "raw_vals": "7.47189",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "in": {
+      "names": "IND",
+      "values": 5,
+      "raw_vals": "5.52814",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ie": {
+      "names": "IRL",
+      "values": 13,
+      "raw_vals": "13.45865",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ir": {
+      "names": "IRN",
+      "values": 14,
+      "raw_vals": "14.4353",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "iq": {
+      "names": "IRQ",
+      "values": 6,
+      "raw_vals": "6.2871",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "is": {
+      "names": "ISL",
+      "values": 10,
+      "raw_vals": "10.7342",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "il": {
+      "names": "ISR",
+      "values": 12,
+      "raw_vals": "12.94237",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "it": {
+      "names": "ITA",
+      "values": 6,
+      "raw_vals": "6.93399",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "jm": {
+      "names": "JAM",
+      "values": 5,
+      "raw_vals": "5.88862",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "jo": {
+      "names": "JOR",
+      "values": 7,
+      "raw_vals": "7.05397",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "jp": {
+      "names": "JPN",
+      "values": 8,
+      "raw_vals": "8.94113",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "kz": {
+      "names": "KAZ",
+      "values": 29,
+      "raw_vals": "29.13399",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ke": {
+      "names": "KEN",
+      "values": 3,
+      "raw_vals": "3.22379",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "kg": {
+      "names": "KGZ",
+      "values": 8,
+      "raw_vals": "8.37154",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "kh": {
+      "names": "KHM",
+      "values": 5,
+      "raw_vals": "5.28685",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ki": {
+      "names": "KIR",
+      "values": 6,
+      "raw_vals": "6.31591",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "kr": {
+      "names": "KOR",
+      "values": 11,
+      "raw_vals": "11.31634",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "kw": {
+      "names": "KWT",
+      "values": 29,
+      "raw_vals": "29.57673",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "la": {
+      "names": "LAO",
+      "values": 11,
+      "raw_vals": "11.99157",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "lb": {
+      "names": "LBN",
+      "values": 9,
+      "raw_vals": "9.99883",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "lr": {
+      "names": "LBR",
+      "values": 3,
+      "raw_vals": "3.07836",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ly": {
+      "names": "LBY",
+      "values": 11,
+      "raw_vals": "11.04627",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "lk": {
+      "names": "LKA",
+      "values": 5,
+      "raw_vals": "5.14398",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ls": {
+      "names": "LSO",
+      "values": 11,
+      "raw_vals": "11.65596",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "lt": {
+      "names": "LTU",
+      "values": 15,
+      "raw_vals": "15.30296",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "lu": {
+      "names": "LUX",
+      "values": 28,
+      "raw_vals": "28.45526",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "lv": {
+      "names": "LVA",
+      "values": 16,
+      "raw_vals": "16.9644",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ma": {
+      "names": "MAR",
+      "values": 7,
+      "raw_vals": "7.856",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "md": {
+      "names": "MDA",
+      "values": 7,
+      "raw_vals": "7.68436",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "mg": {
+      "names": "MDG",
+      "values": 2,
+      "raw_vals": "2.41271",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "mv": {
+      "names": "MDV",
+      "values": 6,
+      "raw_vals": "6.81539",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "mx": {
+      "names": "MEX",
+      "values": 8,
+      "raw_vals": "8.00474",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "mh": {
+      "names": "MHL",
+      "values": 1,
+      "raw_vals": "1.99164",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "mk": {
+      "names": "MKD",
+      "values": 14,
+      "raw_vals": "14.52329",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ml": {
+      "names": "MLI",
+      "values": 5,
+      "raw_vals": "5.78956",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "mt": {
+      "names": "MLT",
+      "values": 15,
+      "raw_vals": "15.51278",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "mm": {
+      "names": "MMR",
+      "values": 3,
+      "raw_vals": "3.51568",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "me": {
+      "names": "MNE",
+      "values": 7,
+      "raw_vals": "7.92477",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "mn": {
+      "names": "MNG",
+      "values": 34,
+      "raw_vals": "34.53589",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "mz": {
+      "names": "MOZ",
+      "values": 2,
+      "raw_vals": "2.43887",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "mr": {
+      "names": "MRT",
+      "values": 7,
+      "raw_vals": "7.41208",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "mu": {
+      "names": "MUS",
+      "values": 11,
+      "raw_vals": "11.60127",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "mw": {
+      "names": "MWI",
+      "values": 3,
+      "raw_vals": "3.33742",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ny": {
+      "names": "MYS",
+      "values": 16,
+      "raw_vals": "16.37325",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "na": {
+      "names": "NAM",
+      "values": 11,
+      "raw_vals": "11.19723",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ne": {
+      "names": "NER",
+      "values": 3,
+      "raw_vals": "3.41484",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ng": {
+      "names": "NGA",
+      "values": 3,
+      "raw_vals": "3.43904",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ni": {
+      "names": "NIC",
+      "values": 5,
+      "raw_vals": "5.49969",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "nl": {
+      "names": "NLD",
+      "values": 13,
+      "raw_vals": "13.64303",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "no": {
+      "names": "NOR",
+      "values": 21,
+      "raw_vals": "21.79506",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "np": {
+      "names": "NPL",
+      "values": 3,
+      "raw_vals": "3.807",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "nz": {
+      "names": "NZL",
+      "values": 24,
+      "raw_vals": "24.08026",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "om": {
+      "names": "OMN",
+      "values": 31,
+      "raw_vals": "31.67344",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "pk": {
+      "names": "PAK",
+      "values": 4,
+      "raw_vals": "4.44557",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "pa": {
+      "names": "PAN",
+      "values": 7,
+      "raw_vals": "7.00776",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "pe": {
+      "names": "PER",
+      "values": 14,
+      "raw_vals": "14.71163",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ph": {
+      "names": "PHL",
+      "values": 3,
+      "raw_vals": "3.96257",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "pw": {
+      "names": "PLW",
+      "values": 1,
+      "raw_vals": "1.21251",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "pg": {
+      "names": "PNG",
+      "values": 10,
+      "raw_vals": "10.15392",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "pl": {
+      "names": "POL",
+      "values": 18,
+      "raw_vals": "18.53677",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "kp": {
+      "names": "PRK",
+      "values": 3,
+      "raw_vals": "3.62622",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "pt": {
+      "names": "PRT",
+      "values": 7,
+      "raw_vals": "7.31575",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "py": {
+      "names": "PRY",
+      "values": 7,
+      "raw_vals": "7.80431",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "qa": {
+      "names": "QAT",
+      "values": 49,
+      "raw_vals": "49.86399",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ro": {
+      "names": "ROU",
+      "values": 12,
+      "raw_vals": "12.01824",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ru": {
+      "names": "RUS",
+      "values": 16,
+      "raw_vals": "16.29686",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "rw": {
+      "names": "RWA",
+      "values": 2,
+      "raw_vals": "2.93884",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "sa": {
+      "names": "SAU",
+      "values": 24,
+      "raw_vals": "24.96189",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "sd": {
+      "names": "SDN",
+      "values": 5,
+      "raw_vals": "5.38692",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "sn": {
+      "names": "SEN",
+      "values": 3,
+      "raw_vals": "3.2192",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "sg": {
+      "names": "SGP",
+      "values": 32,
+      "raw_vals": "32.59289",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "sb": {
+      "names": "SLB",
+      "values": 7,
+      "raw_vals": "7.01291",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "sl": {
+      "names": "SLE",
+      "values": 7,
+      "raw_vals": "7.01732",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "sv": {
+      "names": "SLV",
+      "values": 4,
+      "raw_vals": "4.15259",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "so": {
+      "names": "SOM",
+      "values": 2,
+      "raw_vals": "2.65833",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "rs": {
+      "names": "SRB",
+      "values": 11,
+      "raw_vals": "11.75363",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ss": {
+      "names": "SSD",
+      "values": 0,
+      "raw_vals": "0.90149",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "st": {
+      "names": "STP",
+      "values": 3,
+      "raw_vals": "3.24196",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "sr": {
+      "names": "SUR",
+      "values": 12,
+      "raw_vals": "12.72046",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "sk": {
+      "names": "SVK",
+      "values": 9,
+      "raw_vals": "9.91878",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "si": {
+      "names": "SVN",
+      "values": 13,
+      "raw_vals": "13.34005",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "se": {
+      "names": "SWE",
+      "values": 16,
+      "raw_vals": "16.90837",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "sz": {
+      "names": "SWZ",
+      "values": 9,
+      "raw_vals": "9.39457",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "sc": {
+      "names": "SYC",
+      "values": 2,
+      "raw_vals": "2.3212",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "sy": {
+      "names": "SYR",
+      "values": 10,
+      "raw_vals": "10.54407",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "td": {
+      "names": "TCD",
+      "values": 2,
+      "raw_vals": "2.52412",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "tg": {
+      "names": "TGO",
+      "values": 4,
+      "raw_vals": "4.14608",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "th": {
+      "names": "THA",
+      "values": 12,
+      "raw_vals": "12.73327",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "tj": {
+      "names": "TJK",
+      "values": 3,
+      "raw_vals": "3.50139",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "tm": {
+      "names": "TKM",
+      "values": 16,
+      "raw_vals": "16.47356",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "tl": {
+      "names": "TLS",
+      "values": 7,
+      "raw_vals": "7.71733",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "to": {
+      "names": "TON",
+      "values": 16,
+      "raw_vals": "16.89155",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "tt": {
+      "names": "TTO",
+      "values": 19,
+      "raw_vals": "19.89901",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "tn": {
+      "names": "TUN",
+      "values": 9,
+      "raw_vals": "9.30671",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "tr": {
+      "names": "TUR",
+      "values": 18,
+      "raw_vals": "18.49543",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "tv": {
+      "names": "TUV",
+      "values": 1,
+      "raw_vals": "1.11384",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "tz": {
+      "names": "TZA",
+      "values": 3,
+      "raw_vals": "3.18758",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ug": {
+      "names": "UGA",
+      "values": 2,
+      "raw_vals": "2.88842",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ua": {
+      "names": "UKR",
+      "values": 12,
+      "raw_vals": "12.49056",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "uy": {
+      "names": "URY",
+      "values": 34,
+      "raw_vals": "34.47499",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "us": {
+      "names": "USA",
+      "values": 18,
+      "raw_vals": "18.60373",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "uz": {
+      "names": "UZB",
+      "values": 9,
+      "raw_vals": "9.06364",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ve": {
+      "names": "VEN",
+      "values": 6,
+      "raw_vals": "6.26559",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "vg": {
+      "names": "VGB",
+      "values": 0,
+      "raw_vals": "0.63813",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "vn": {
+      "names": "VNM",
+      "values": 10,
+      "raw_vals": "10.98522",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "vu": {
+      "names": "VUT",
+      "values": 6,
+      "raw_vals": "6.13529",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ws": {
+      "names": "WSM",
+      "values": 5,
+      "raw_vals": "5.26065",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "ye": {
+      "names": "YEM",
+      "values": 2,
+      "raw_vals": "2.26559",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "za": {
+      "names": "ZAF",
+      "values": 11,
+      "raw_vals": "11.28097",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "zm": {
+      "names": "ZMB",
+      "values": 8,
+      "raw_vals": "8.40045",
+      "years": 2017,
+      "unit": "TONNES"
+    },
+    "zw": {
+      "names": "ZWE",
+      "values": 3,
+      "raw_vals": "3.36148",
+      "years": 2017,
+      "unit": "TONNES"
+    }
+  }
+}
+const max = {
+  "values": 49
+} 
+
+const INDEX = '12.2.2'
+const unit = "Tonnes"
+const TYPE = 'values'
+
+const indexData = data[INDEX]
+console.log(indexData)
+
+let ISO_A2
+let table = []
+let iso3cds = []
+let iso2cds = []
+for (let iso2cd in indexData) {
+  iso3cds.push(indexData[iso2cd]['names'])
+  iso2cds.push(iso2cd)
+  const g = 
+    indexData[iso2cd][TYPE] / 
+    max[TYPE]
+  if (table[g]) {
+    table[g].push(iso2cd.toUpperCase())
+  } else {
+    table[g] = [iso2cd.toUpperCase()]
+  }
+}
+let fillExpression = [
+  'match',
+  [
+    'get',
+    'ISO_A2'
+  ]
+]
+for (let g in table) {
+  fillExpression.push(table[g])
+  fillExpression.push('hsl(' + parseInt(60 - g * 60) + ', 100%, 50%)')
+}
+fillExpression.push([
+  'rgb',
+  250,
+  250,
+  250
+])
+
+const map = new mapboxgl.Map({
+  container: 'map',
+  style: 'https://cartotiles.github.io/experimental-plaine-map/style.json',
+  attributionControl: true,
+  hash: true,
+  renderWorldCopies: false
+})
+map.addControl(new mapboxgl.NavigationControl())
+
+let match1 = [
+  'match',
+  [
+    'get',
+    'ISO3CD'
+  ]
+]
+let match2 = [
+  'match',
+  [
+    'get',
+    'ISO3CD'
+  ]
+]
+let match3 = [
+  'match',
+  [
+    'get',
+    'ISO3CD'
+  ]
+]
+for (let iso2cd in indexData) {
+  match1.push(indexData[iso2cd]['names'].toUpperCase())
+  match1.push(indexData[iso2cd]['values'].toString())
+  match2.push(indexData[iso2cd]['names'].toUpperCase())
+  match2.push([
+    'concat',
+    [
+      'get',
+      'ISO3CD'
+    ],
+    ': ',
+    indexData[iso2cd][TYPE]
+  ])
+  match3.push(indexData[iso2cd]['names'].toUpperCase())
+  match3.push([
+    'concat',
+    [
+      'get',
+      'MAPCLR'
+    ],
+    ': ',
+    indexData[iso2cd]['raw_vals'],
+    ' (',
+    indexData[iso2cd]['years'],
+    ' )'
+  ])
+}
+match1.push('')
+match2.push('NA')
+match3.push('No data')
+
+const textFieldExpression = [
+  'step',
+  [
+    'zoom'
+  ],
+  match1,
+  1,
+  match2,
+  3,
+  match3
+]
+
+
+
+map.on('load', () => {
+  map.getSource('v').attribution += 
+    ` | number of ${TYPE} on ${INDEX} for test`
+  console.log(map.getSource('v').attribution)
+  map.setPaintProperty(
+    'bnda',
+    'fill-color',
+    fillExpression
+  )
+  map.setLayoutProperty(
+    'text',
+    'text-field',
+    textFieldExpression
+  )
+  map.setPaintProperty(
+    'text',
+    'text-color',
+    [
+      'match',
+      [
+        'get',
+        'ISO3CD'
+      ],
+      iso3cds,
+      [
+        'rgb',
+        0,
+        0,
+        0
+      ],
+      [
+        'rgb',
+        200,
+        200,
+        200
+      ]
+    ]
+  )
+})
+map.on('click', 'bnda', function(e) {
+  console.log(e.features[0])
+  var html = "<h2>" + e.features[0].properties.MAPLAB + 
+    "</h2><img src='https://cartotiles.github.io/experimental-coloredmap-sdgs/graphs/" + INDEX + "/" + INDEX + "_" + e.features[0].properties.MAPCLR +".png" + "'><br>" + 
+    "unit:" + unit
+  new mapboxgl.Popup()
+    .setLngLat(e.lngLat)
+    .setHTML(html)
+    .addTo(map)
+})
+
+</script>
+</body>
+</html>
