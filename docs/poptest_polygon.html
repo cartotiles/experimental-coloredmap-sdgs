@@ -1303,7 +1303,7 @@ closeOnClick: false
 })
 
 
-map.on('mouseenter', 'bnda', function(e) {
+map.on('mousemove', 'bnda', function(e) {
 map.getCanvas().style.cursor = 'pointer';
   var html = "<h2>" + e.features[0].properties.MAPLAB + 
     "</h2><img src='https://cartotiles.github.io/experimental-coloredmap-sdgs/graphs/" + INDEX + "/" + INDEX + "_" + e.features[0].properties.MAPCLR +".png" + "'><br>" + 
@@ -1313,12 +1313,6 @@ popup
 .setLngLat(e.lngLat)
 .setHTML(html)
 .addTo(map)
-})
-
-
-map.on('mouseleave', 'bnda', function() {
-map.getCanvas().style.cursor = ''
-popup.remove()
 })
 
 
